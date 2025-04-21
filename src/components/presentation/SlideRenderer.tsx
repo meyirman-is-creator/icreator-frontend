@@ -1,4 +1,3 @@
-/* src/components/presentation/SlideRenderer.tsx */
 "use client";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,7 +9,7 @@ interface SlideRendererProps {
 
 export function SlideRenderer({ content }: SlideRendererProps) {
   return (
-    <Card className="w-full bg-card text-card-foreground border-border">
+    <Card className="w-full bg-[#ffffff] text-[#1e293b] border-[#e2e8f0]">
       <CardContent className="p-6">
         <div className="prose max-w-none">
           <ReactMarkdown>{content}</ReactMarkdown>

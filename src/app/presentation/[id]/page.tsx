@@ -1,4 +1,3 @@
-/* src/app/presentation/[id]/page.tsx */
 "use client";
 
 import { useEffect } from "react";
@@ -63,7 +62,7 @@ export default function PresentationPage() {
   ]);
 
   return (
-    <main className="flex min-h-screen flex-col py-8 px-4 sm:px-6 lg:px-8 bg-background">
+    <main className="flex min-h-screen flex-col py-8 px-4 sm:px-6 lg:px-8 bg-[#f8fafc]">
       <div className="max-w-5xl w-full mx-auto space-y-6">
         <div className="flex justify-between items-center">
           <Button asChild variant="ghost">
@@ -76,16 +75,14 @@ export default function PresentationPage() {
 
         {fetchState === "loading" && (
           <div className="flex flex-col items-center justify-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-            <p className="mt-4 text-muted-foreground">
-              Загрузка презентации...
-            </p>
+            <Loader2 className="h-8 w-8 animate-spin text-[#64748b]" />
+            <p className="mt-4 text-[#64748b]">Загрузка презентации...</p>
           </div>
         )}
 
         {fetchState === "error" && (
           <div className="flex flex-col items-center justify-center py-12">
-            <p className="text-destructive">
+            <p className="text-[#ef4444]">
               {fetchError || "Произошла ошибка при загрузке презентации"}
             </p>
             <Button asChild className="mt-4">

@@ -1,4 +1,3 @@
-/* src/components/presentation/SlideNavigation.tsx */
 "use client";
 import { Button } from "@/components/ui/button";
 import { usePresentationStore } from "@/lib/store";
@@ -32,12 +31,12 @@ export function SlideNavigation() {
         size="icon"
         onClick={goToPreviousSlide}
         disabled={currentSlideIndex === 0}
-        className="border-border text-foreground"
+        className="border-[#e2e8f0] text-[#1e293b]"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
 
-      <div className="text-sm text-muted-foreground">
+      <div className="text-sm text-[#64748b]">
         Слайд {currentSlideIndex + 1} из {totalSlides}
       </div>
 
@@ -46,7 +45,7 @@ export function SlideNavigation() {
         size="icon"
         onClick={goToNextSlide}
         disabled={!currentPresentation || currentSlideIndex === totalSlides - 1}
-        className="border-border text-foreground"
+        className="border-[#e2e8f0] text-[#1e293b]"
       >
         <ChevronRight className="h-4 w-4" />
       </Button>

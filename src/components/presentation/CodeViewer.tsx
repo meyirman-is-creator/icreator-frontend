@@ -1,4 +1,3 @@
-/* src/components/presentation/CodeViewer.tsx */
 "use client";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -31,9 +30,9 @@ export function CodeViewer({
   };
 
   return (
-    <Card className="border-border bg-card">
-      <CardHeader className="flex flex-row items-center justify-between py-2 px-4 border-b border-border">
-        <CardTitle className="text-sm font-medium text-card-foreground">
+    <Card className="border-[#e2e8f0] bg-[#ffffff]">
+      <CardHeader className="flex flex-row items-center justify-between py-2 px-4 border-b border-[#e2e8f0]">
+        <CardTitle className="text-sm font-medium text-[#1e293b]">
           {title}
         </CardTitle>
         <Button

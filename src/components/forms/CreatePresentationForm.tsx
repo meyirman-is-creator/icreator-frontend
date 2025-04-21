@@ -1,4 +1,3 @@
-/* src/components/forms/CreatePresentationForm.tsx */
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -103,12 +102,12 @@ export function CreatePresentationForm() {
   };
 
   return (
-    <Card className="w-full max-w-md border-border bg-card">
+    <Card className="w-full max-w-md border-[#e2e8f0] bg-[#ffffff]">
       <CardHeader>
-        <CardTitle className="text-card-foreground">
+        <CardTitle className="text-[#1e293b]">
           Создать новую презентацию
         </CardTitle>
-        <CardDescription className="text-muted-foreground">
+        <CardDescription className="text-[#64748b]">
           Введите тему и выберите количество слайдов для генерации
         </CardDescription>
       </CardHeader>
@@ -120,17 +119,17 @@ export function CreatePresentationForm() {
               name="topic"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-card-foreground">
+                  <FormLabel className="text-[#1e293b]">
                     Тема презентации
                   </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Например: Искусственный интеллект в современном мире"
-                      className="bg-background border-input text-foreground"
+                      className="bg-[#f8fafc] border-[#e2e8f0] text-[#1e293b]"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="text-destructive" />
+                  <FormMessage className="text-[#ef4444]" />
                 </FormItem>
               )}
             />
@@ -140,7 +139,7 @@ export function CreatePresentationForm() {
               name="slides_count"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-card-foreground">
+                  <FormLabel className="text-[#1e293b]">
                     Количество слайдов: {slideCount}
                   </FormLabel>
                   <FormControl>
@@ -154,14 +153,14 @@ export function CreatePresentationForm() {
                       className="mt-2"
                     />
                   </FormControl>
-                  <FormMessage className="text-destructive" />
+                  <FormMessage className="text-[#ef4444]" />
                 </FormItem>
               )}
             />
 
             <Button
               type="submit"
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              className="w-full bg-[#3b82f6] text-[#ffffff] hover:bg-[#3b82f6]/90"
               disabled={createState === "loading"}
             >
               {createState === "loading" ? (
@@ -175,7 +174,7 @@ export function CreatePresentationForm() {
             </Button>
 
             {createState === "error" && (
-              <p className="text-sm text-destructive mt-2">
+              <p className="text-sm text-[#ef4444] mt-2">
                 {usePresentationStore.getState().createError}
               </p>
             )}
