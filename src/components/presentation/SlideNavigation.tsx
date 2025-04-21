@@ -1,4 +1,5 @@
-"use client"
+/* src/components/presentation/SlideNavigation.tsx */
+"use client";
 import { Button } from "@/components/ui/button";
 import { usePresentationStore } from "@/lib/store";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -31,11 +32,12 @@ export function SlideNavigation() {
         size="icon"
         onClick={goToPreviousSlide}
         disabled={currentSlideIndex === 0}
+        className="border-border text-foreground"
       >
         <ChevronLeft className="h-4 w-4" />
       </Button>
 
-      <div className="text-sm">
+      <div className="text-sm text-muted-foreground">
         Слайд {currentSlideIndex + 1} из {totalSlides}
       </div>
 
@@ -44,6 +46,7 @@ export function SlideNavigation() {
         size="icon"
         onClick={goToNextSlide}
         disabled={!currentPresentation || currentSlideIndex === totalSlides - 1}
+        className="border-border text-foreground"
       >
         <ChevronRight className="h-4 w-4" />
       </Button>

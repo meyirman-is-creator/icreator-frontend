@@ -1,4 +1,5 @@
-"use client"
+/* src/components/forms/CreatePresentationForm.tsx */
+"use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -27,7 +28,6 @@ import { usePresentationStore } from "@/lib/store";
 import PresentationService from "@/services/presentation-service";
 import { Loader2 } from "lucide-react";
 
-// Схема валидации формы
 const formSchema = z.object({
   topic: z
     .string()
@@ -51,7 +51,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 export function CreatePresentationForm() {
   const router = useRouter();
-  const [slideCount, setSlideCount] = useState(7); // Начальное значение для слайдера
+  const [slideCount, setSlideCount] = useState(7);
 
   const {
     createState,
@@ -82,7 +82,6 @@ export function CreatePresentationForm() {
       setCreateResponse(response);
       setCreateState("success");
 
-      // Перенаправляем на страницу презентации
       setTimeout(() => {
         router.push(`/presentation/${response.presentation_id}`);
       }, 500);
@@ -97,7 +96,6 @@ export function CreatePresentationForm() {
     }
   };
 
-  // Обработчик изменения значения слайдера
   const handleSliderChange = (value: number[]) => {
     const count = value[0];
     setSlideCount(count);
@@ -105,10 +103,12 @@ export function CreatePresentationForm() {
   };
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full max-w-md border-border bg-card">
       <CardHeader>
-        <CardTitle>Создать новую презентацию</CardTitle>
-        <CardDescription>
+        <CardTitle className="text-card-foreground">
+          Создать новую презентацию
+        </CardTitle>
+        <CardDescription className="text-muted-foreground">
           Введите тему и выберите количество слайдов для генерации
         </CardDescription>
       </CardHeader>
@@ -120,14 +120,17 @@ export function CreatePresentationForm() {
               name="topic"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Тема презентации</FormLabel>
+                  <FormLabel className="text-card-foreground">
+                    Тема презентации
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Например: Искусственный интеллект в современном мире"
+                      className="bg-background border-input text-foreground"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-destructive" />
                 </FormItem>
               )}
             />
@@ -137,7 +140,9 @@ export function CreatePresentationForm() {
               name="slides_count"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Количество слайдов: {slideCount}</FormLabel>
+                  <FormLabel className="text-card-foreground">
+                    Количество слайдов: {slideCount}
+                  </FormLabel>
                   <FormControl>
                     <Slider
                       defaultValue={[7]}
@@ -149,14 +154,14 @@ export function CreatePresentationForm() {
                       className="mt-2"
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-destructive" />
                 </FormItem>
               )}
             />
 
             <Button
               type="submit"
-              className="w-full"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
               disabled={createState === "loading"}
             >
               {createState === "loading" ? (
@@ -170,7 +175,7 @@ export function CreatePresentationForm() {
             </Button>
 
             {createState === "error" && (
-              <p className="text-sm text-red-500 mt-2">
+              <p className="text-sm text-destructive mt-2">
                 {usePresentationStore.getState().createError}
               </p>
             )}

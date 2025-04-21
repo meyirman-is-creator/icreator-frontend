@@ -1,4 +1,5 @@
-"use client"
+/* src/components/presentation/CodeViewer.tsx */
+"use client";
 import { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
@@ -19,7 +20,6 @@ export function CodeViewer({
 }: CodeViewerProps) {
   const [copied, setCopied] = useState(false);
 
-  // Функция для копирования кода в буфер обмена
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(code);
@@ -31,9 +31,11 @@ export function CodeViewer({
   };
 
   return (
-    <Card className="border border-slate-200 dark:border-slate-800">
-      <CardHeader className="flex flex-row items-center justify-between py-2 px-4 border-b border-slate-200 dark:border-slate-800">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
+    <Card className="border-border bg-card">
+      <CardHeader className="flex flex-row items-center justify-between py-2 px-4 border-b border-border">
+        <CardTitle className="text-sm font-medium text-card-foreground">
+          {title}
+        </CardTitle>
         <Button
           variant="ghost"
           size="sm"

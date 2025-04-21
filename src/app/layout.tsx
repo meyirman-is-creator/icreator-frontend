@@ -1,3 +1,4 @@
+/* src/app/layout.tsx */
 "use client"
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -12,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-background text-foreground`}>
         <Providers>{children}</Providers>
       </body>
     </html>

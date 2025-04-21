@@ -1,15 +1,16 @@
+/* src/app/page.tsx */
 "use client"
 import { CreatePresentationForm } from '@/components/forms/CreatePresentationForm';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-slate-900">
+    <main className="flex min-h-screen flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="max-w-4xl w-full space-y-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h1 className="text-4xl font-bold text-foreground mb-2">
             iCreator
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 text-xl">
+          <p className="text-secondary-foreground text-xl">
             Генератор презентаций на основе искусственного интеллекта
           </p>
         </div>
@@ -19,7 +20,7 @@ export default function Home() {
         </div>
 
         <div className="text-center pt-8">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-muted-foreground">
             Используйте iCreator для быстрого создания профессиональных презентаций 
             на любую тему с помощью искусственного интеллекта
           </p>

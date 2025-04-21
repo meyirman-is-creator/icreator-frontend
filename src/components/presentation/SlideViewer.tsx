@@ -1,4 +1,5 @@
-"use client"
+/* src/components/presentation/SlideViewer.tsx */
+"use client";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { usePresentationStore } from "@/lib/store";
@@ -13,7 +14,7 @@ export function SlideViewer() {
   if (!currentPresentation) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-slate-500">Презентация не найдена</p>
+        <p className="text-muted-foreground">Презентация не найдена</p>
       </div>
     );
   }
@@ -23,14 +24,16 @@ export function SlideViewer() {
   if (!currentSlide) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-slate-500">Слайд не найден</p>
+        <p className="text-muted-foreground">Слайд не найден</p>
       </div>
     );
   }
 
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-bold mb-4">{currentPresentation.topic}</h2>
+      <h2 className="text-2xl font-bold mb-4 text-foreground">
+        {currentPresentation.topic}
+      </h2>
 
       <Tabs
         defaultValue="preview"
@@ -38,9 +41,19 @@ export function SlideViewer() {
         onValueChange={setActiveTab}
         className="w-full"
       >
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="preview">Предпросмотр</TabsTrigger>
-          <TabsTrigger value="code">Код компонента</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 bg-muted">
+          <TabsTrigger
+            value="preview"
+            className="text-muted-foreground data-[state=active]:text-foreground"
+          >
+            Предпросмотр
+          </TabsTrigger>
+          <TabsTrigger
+            value="code"
+            className="text-muted-foreground data-[state=active]:text-foreground"
+          >
+            Код компонента
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="preview" className="pt-4">
